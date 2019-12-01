@@ -69,7 +69,8 @@ class HomePage extends Component {
 			.deleteAll(1)
 			.changeDelay(60)
 			.typeString('To navigate the website you may either press the <em>number key</em> associated ' +
-				'with the option or click the options on the <em>nav bar</em> on top...<br>')
+				'with the option or click the options on the <em>nav bar</em>')
+			.callFunction(() => this.props.showNav()).typeString(' on top...<br>')
 			.pauseFor(700).changeCursor(' ')
 			.callFunction(() => {
 				this.setState({ shouldShowOptions: true });
@@ -119,6 +120,7 @@ HomePage.defaultProps = {
 };
 
 HomePage.propTypes = {
+	showNav: PropTypes.func,
 	stringIndex: PropTypes.number
 };
 

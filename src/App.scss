@@ -28,6 +28,11 @@
     z-index: 20;
     //position: absolute;
   }
+  .nav {
+    .active {
+      transform: scale(1.2);
+    }
+  }
   .animation-area {
     background: linear-gradient(135deg, $body-bg, $gray-800);
     width: 100%;
