@@ -1,0 +1,25 @@
+.home-page {
+  height: 100vh;
+  .typed-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  .typed-cursor {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  .typed-fade-out {
+    opacity: 0;
+    transition: opacity 0s;
+    -webkit-animation: 0;
+    animation: 0;
+  }
+
+}
+
