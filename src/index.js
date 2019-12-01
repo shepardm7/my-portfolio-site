@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 
+import ContextProvider from './Context';
 import './index.css';
 import App from './App';
 // import 'bootswatch/dist/darkly/bootstrap.min.css';
@@ -11,7 +12,9 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 	<BrowserRouter>
-		<App />
+		<ContextProvider>
+			<App/>
+		</ContextProvider>
 	</BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

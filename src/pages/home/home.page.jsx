@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+
+import { Context } from '../../Context';
 import Typed from 'typed.js';
 import Typewriter from 'typewriter-effect';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowUp} from '@fortawesome/free-solid-svg-icons';
+
 
 import './home.styles.scss';
+import {actionType} from '../../ActionTypes';
 
 class HomePage extends Component {
+	static contextType = Context;
 	constructor(props, context) {
 		super(props, context);
 
@@ -32,12 +39,18 @@ class HomePage extends Component {
 		this.refTypedTextElement2 = null;
 		this.state = {
 			isTextSelected: false,
-			shouldShowOptions: false
+			shouldShowOptions: false,
+			shouldShowArrow: false
 		}
 	}
 
 	componentDidMount() {
 		// this.typed = new Typed(this.refTypedTextElement, this.typeOptions);
+		console.log('Homepage', this.context);
+		console.log('Homepage', this.props);
+		this.context.dispatch(actionType.onDocumentKeyUp, (key) => {
+			console.log('From homepage', key);
+		});
 	}
 
 	componentWillUnmount() {
@@ -61,16 +74,23 @@ class HomePage extends Component {
 			// .deleteAll()
 			.typeString('My name is <em class="text-success">Sateek Roy</em>...<br>')
 			.pauseFor(400)
-			.typeString('I\'m a Web/Android developer.')
+			.typeString('I\'m a Web developer')
+			.pauseFor(100)
+			.deleteChars(10)
+			.typeString('/Android developer.')
 			.pauseFor(2000)
 			.deleteAll(0)
 			.typeString('<b>THANK YOU</b> for visiting my website.')
 			.pauseFor(1000)
 			.deleteAll(1)
 			.changeDelay(60)
-			.typeString('To navigate the website you may either press the <em>number key</em> associated ' +
-				'with the option or click the options on the <em>nav bar</em>')
-			.callFunction(() => this.props.showNav()).typeString(' on top...<br>')
+			.typeString('<span class="h3">Select an option by pressing the associated <em>number key</em></span>')
+			.callFunction(() => {
+				this.setState({
+					shouldShowArrow: true
+				});
+				this.props.setNavVisibility(true);
+			})
 			.pauseFor(700).changeCursor(' ')
 			.callFunction(() => {
 				this.setState({ shouldShowOptions: true });
@@ -80,30 +100,22 @@ class HomePage extends Component {
 
 	onOptionsTypeWriterInit = typewriter => {
 		typewriter.changeDelay(40).changeCursor('_')
-			.typeString('1. Get to know me<br>').pauseFor(500)
-			.typeString('2. My works<br>').pauseFor(200)
-			.typeString('3. Get in touch<br>').pauseFor(200)
-			.typeString('4. Conclusion')
+			.typeString('<span class="text-success">1.</span> Get to know me<br>').pauseFor(500)
+			.typeString('<span class="text-success">2.</span> My Skills<br>').pauseFor(200)
+			.typeString('<span class="text-success">3.</span> My works<br>').pauseFor(200)
+			.typeString('<span class="text-success">4.</span> Get in touch<br>').pauseFor(200)
+			.typeString('<span class="text-success">0.</span> Hide nav bar')
+			.changeCursor(' ')
 			.start()
-	}
+	};
 
 	render() {
-		const { shouldShowOptions } = this.state;
+		const { shouldShowOptions, shouldShowArrow } = this.state;
 		return (
-			<div className="home-page container">
+			<div className="home-page container" onKeyUp={ e => this.onKeyUp(e)}>
+				{ shouldShowArrow ? <FontAwesomeIcon icon={faArrowUp} className="h1 up-arrow fade-in-bottom  "/> : null }
 				<div className="typed-text-container">
-					{/*<span id="typed-strings" ref={el => this.refTypedStrings = el}>*/}
-					{/*	<p>Hello, world!!!</p>*/}
-					{/*	<p>I&apos;m Sateek Roy.</p>*/}
-					{/*	<p><b>THANK YOU</b> for visiting my website...</p>*/}
-					{/*	<p>Something more</p>*/}
-					{/*	<p>something more 2</p>*/}
-					{/*</span>*/}
 					<div className="typed-text text1 h2">
-						{/*<div className={`typed-text text1 h2 ${isTextSelected ? 'bg-white text-dark' : ''}`} ref={el => this.refTypedTextElement = el}>*/}
-						
-						{/*</div>*/}
-						{/*<div className="typed-text text2 h2" ref={el => this.refTypedTextElement2 = el}/>*/}
 						<Typewriter onInit={(typewriter) => this.onTypewriterInit(typewriter)} />
 					</div>
 					{ shouldShowOptions ? <div className="typed-text options-text h3 text-left">
@@ -116,12 +128,14 @@ class HomePage extends Component {
 }
 
 HomePage.defaultProps = {
-	stringIndex: 0
+	firstLoad: true
 };
 
 HomePage.propTypes = {
 	showNav: PropTypes.func,
-	stringIndex: PropTypes.number
+	setNavVisibility: PropTypes.func,
+	stringIndex: PropTypes.number,
+	firstLoad: PropTypes.bool
 };
 
 export default HomePage;

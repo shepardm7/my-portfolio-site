@@ -28,6 +28,7 @@
         "jsx-quotes": ["warn", "prefer-double"],
         "comma-dangle": "off",
         "no-unused-vars": "warn",
-        "object-curly-newline": "off"
+        "object-curly-newline": "off",
+        "react/prop-types": "off"
     }
 }
