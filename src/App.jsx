@@ -9,6 +9,7 @@ import AboutPage from './pages/about/about.page';
 import HeaderComp from './components/header/header.comp';
 import AnimatedBg from './components/animated-bg/animated-bg.comp';
 import NotFoundPage from './pages/not-found/not-found.page';
+import SkipBtn from './components/skip-btn/skip-btn.comp';
 
 class App extends React.Component {
 	static contextType = Context;
@@ -23,8 +24,28 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
+		const { history } = this.props;
 		document.addEventListener('keyup', e => {
 			console.log(this.context);
+			switch(e.key) {
+				case '0':
+					history.push('/');
+					break;
+				case '1':
+					history.push('/about');
+					break;
+				case '2':
+					history.push('/skills');
+					break;
+				case '3':
+					history.push('/works');
+					break;
+				case '4':
+					history.push('/contact');
+					break;
+				case ' ':
+					this.context.onSkip();
+			}
 			this.context.onDocumentKeyUp(e.key);
 		});
 		if (this.props.history.location.pathname !== '/') {
@@ -56,6 +77,7 @@ class App extends React.Component {
 						<Route path="/about" render={props => <AboutPage {...props} />}/>
 						<Route component={NotFoundPage} />
 					</Switch>
+					<SkipBtn isVisible={this.context.showSkip} />
 				</div>
 			</div>
 		);

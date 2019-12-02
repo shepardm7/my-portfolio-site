@@ -12,11 +12,11 @@ const HeaderComp = ({getNavVisibilityClass, history}) => {
 
 	return (
 		<nav className={`nav bg-secondary ${getNavVisibilityClass()}`}>
-			<Link to={{pathname: '/', state: {firstLoad: false}}} className={getClassName('/')}>Home</Link>
-			<Link to="/about" className={getClassName('/about')}>About</Link>
-			<Link to="/skills" className={getClassName('/skills')}>Skills</Link>
-			<Link to="/works" className={getClassName('/works')}>My Works</Link>
-			<Link to="/contact" className={getClassName('/contact')}>Contact</Link>
+			<Link to={{pathname: '/', state: {firstLoad: false}}} className={getClassName('/')}>0. Home</Link>
+			<Link to="/about" className={getClassName('/about')}>1. About</Link>
+			<Link to="/skills" className={getClassName('/skills')}>2. Skills</Link>
+			<Link to="/works" className={getClassName('/works')}>3. My Works</Link>
+			<Link to="/contact" className={getClassName('/contact')}>4. Contact</Link>
 		</nav>
 	);
 };

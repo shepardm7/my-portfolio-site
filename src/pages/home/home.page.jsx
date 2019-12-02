@@ -40,7 +40,8 @@ class HomePage extends Component {
 		this.state = {
 			isTextSelected: false,
 			shouldShowOptions: false,
-			shouldShowArrow: false
+			shouldShowArrow: false,
+			isCompletelyLoaded: false
 		}
 	}
 
@@ -48,13 +49,17 @@ class HomePage extends Component {
 		// this.typed = new Typed(this.refTypedTextElement, this.typeOptions);
 		console.log('Homepage', this.context);
 		console.log('Homepage', this.props);
-		this.context.dispatch(actionType.onDocumentKeyUp, (key) => {
-			console.log('From homepage', key);
+
+		this.context.dispatch(actionType.setShowSkip, true);
+		this.context.dispatch(actionType.setOnSkip, () => {
+			this.props.setNavVisibility(true);
+			this.setState({shouldShowArrow: false, isCompletelyLoaded: true});
 		});
 	}
 
 	componentWillUnmount() {
 		// this.typed.destroy();
+		this.context.dispatch(actionType.resetState);
 	}
 
 	handlePreStringTyped = (pos, self) => {
@@ -84,13 +89,8 @@ class HomePage extends Component {
 			.pauseFor(1000)
 			.deleteAll(1)
 			.changeDelay(60)
-			.typeString('<span class="h3">Select an option by pressing the associated <em>number key</em></span>')
-			.callFunction(() => {
-				this.setState({
-					shouldShowArrow: true
-				});
-				this.props.setNavVisibility(true);
-			})
+			.typeString('<span class="h3">Select an option by pressing the associated <em class="text-success">number' +
+				' key</em></span>')
 			.pauseFor(700).changeCursor(' ')
 			.callFunction(() => {
 				this.setState({ shouldShowOptions: true });
@@ -104,24 +104,52 @@ class HomePage extends Component {
 			.typeString('<span class="text-success">2.</span> My Skills<br>').pauseFor(200)
 			.typeString('<span class="text-success">3.</span> My works<br>').pauseFor(200)
 			.typeString('<span class="text-success">4.</span> Get in touch<br>').pauseFor(200)
-			.typeString('<span class="text-success">0.</span> Hide nav bar')
+			.typeString('<span class="text-success">9.</span> Hide nav bar')
+			.callFunction(() => {
+				this.props.setNavVisibility(true);
+				this.context.dispatch(actionType.setShowSkip, false);
+				this.context.dispatch(actionType.setOnSkip, () => {})
+			})
 			.changeCursor(' ')
 			.start()
 	};
 
+	getTextContainer = () => {
+		const { isCompletelyLoaded, shouldShowOptions } = this.state;
+		if (isCompletelyLoaded) {
+			return (
+				<div className="typed-text-container">
+					<div className="typed-text text1 h3">
+						Select an option by pressing the associated <em className="text-success">number key</em>
+					</div>
+					<div className="typed-text options-text h3 text-left">
+						<span className="text-success">1.</span> Get to know me<br/>
+						<span className="text-success">2.</span> My Skills<br/>
+						<span className="text-success">3.</span> My Works<br/>
+						<span className="text-success">4.</span> Get in touch<br/>
+						<span className="text-success">9.</span> Hide nav bar<br/>
+					</div>
+				</div>
+			)
+		}
+		return (
+			<div className="typed-text-container">
+				<div className="typed-text text1 h2">
+					<Typewriter onInit={(typewriter) => this.onTypewriterInit(typewriter)} />
+				</div>
+				{ shouldShowOptions ? <div className="typed-text options-text h3 text-left">
+					<Typewriter onInit={typewriter => this.onOptionsTypeWriterInit(typewriter)} />
+				</div> : null}
+			</div>
+		)
+	}
+
 	render() {
-		const { shouldShowOptions, shouldShowArrow } = this.state;
+		const { shouldShowOptions, shouldShowArrow, isCompletelyLoaded } = this.state;
 		return (
 			<div className="home-page container" onKeyUp={ e => this.onKeyUp(e)}>
-				{ shouldShowArrow ? <FontAwesomeIcon icon={faArrowUp} className="h1 up-arrow fade-in-bottom  "/> : null }
-				<div className="typed-text-container">
-					<div className="typed-text text1 h2">
-						<Typewriter onInit={(typewriter) => this.onTypewriterInit(typewriter)} />
-					</div>
-					{ shouldShowOptions ? <div className="typed-text options-text h3 text-left">
-						<Typewriter onInit={typewriter => this.onOptionsTypeWriterInit(typewriter)} />
-					</div> : null}
-				</div>
+				{/*{ shouldShowArrow ? <FontAwesomeIcon icon={faArrowUp} className="h1 up-arrow fade-in-bottom  "/> : null }*/}
+				{ this.getTextContainer() }
 			</div>
 		);
 	}

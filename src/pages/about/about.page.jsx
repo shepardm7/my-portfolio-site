@@ -12,6 +12,10 @@ class AboutPage extends React.Component {
 		});
 	}
 
+	componentWillUnmount() {
+		this.context.dispatch(actionType.resetState);
+	}
+
 	render() {
 		return (
 			<div className="about-page container">

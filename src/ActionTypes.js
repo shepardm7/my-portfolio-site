@@ -1,3 +1,6 @@
 export const actionType = {
-	onDocumentKeyUp: 'onDocumentKeyUp'
+	onDocumentKeyUp: 'onDocumentKeyUp',
+	setShowSkip: 'setShowSkip',
+	setOnSkip: 'setOnSkip',
+	resetState: 'resetState'
 };
