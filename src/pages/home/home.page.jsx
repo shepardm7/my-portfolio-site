@@ -77,7 +77,7 @@ class HomePage extends Component {
 			.typeString('Hello, world!!!<br>')
 			.pauseFor(700)
 			// .deleteAll()
-			.typeString('My name is <em class="text-success">Sateek Roy</em>...<br>')
+			.typeString('My name is <em class="text-success">Sateek Roy</em>...<p/>')
 			.pauseFor(400)
 			.typeString('I\'m a Web developer')
 			.pauseFor(100)
@@ -88,7 +88,7 @@ class HomePage extends Component {
 			.typeString('<b>THANK YOU</b> for visiting my website.')
 			.pauseFor(1000)
 			.deleteAll(1)
-			.changeDelay(60)
+			.changeDelay(40)
 			.typeString('<span class="h3">Select an option by pressing the associated <em class="text-success">number' +
 				' key</em></span>')
 			.pauseFor(700).changeCursor(' ')
@@ -99,7 +99,7 @@ class HomePage extends Component {
 	};
 
 	onOptionsTypeWriterInit = typewriter => {
-		typewriter.changeDelay(40).changeCursor('_')
+		typewriter.changeDelay(20).changeCursor('_')
 			.typeString('<span class="text-success">1.</span> Get to know me<br>').pauseFor(500)
 			.typeString('<span class="text-success">2.</span> My Skills<br>').pauseFor(200)
 			.typeString('<span class="text-success">3.</span> My works<br>').pauseFor(200)
