@@ -7,7 +7,7 @@ import SkillGroupItem from './skill-group-item/skill-group-item.comp';
 
 import TypeWriter from 'typewriter-effect';
 
-const SkillGroup = ({ title, visible, items, onNext, shouldAnimate }) => {
+const SkillGroup = ({ title, visible, iconClass, items, onNext, shouldAnimate }) => {
 	// const context = React.useContext(Context);
 	const refElm = React.useRef(null);
 	const [isItemsVisible, setIsItemsVisible] = React.useState(false);
@@ -21,7 +21,7 @@ const SkillGroup = ({ title, visible, items, onNext, shouldAnimate }) => {
 			.callFunction(() => {
 				if (refElm.current) window.scrollTo(0, refElm.current.offsetTop);
 			}).pauseFor(200)
-			.typeString(`<span>${title}</span>`)
+			.typeString(`<i class="${iconClass}"/> <span class="font-weight-normal">${title}</span>`)
 			.changeCursor(' ')
 			.callFunction(() => {
 				setIsItemsVisible(true);
@@ -35,7 +35,7 @@ const SkillGroup = ({ title, visible, items, onNext, shouldAnimate }) => {
 				return <TypeWriter onInit={typeWriterOnInit} />
 			}
 		} else {
-			return <span>{title}</span>
+			return <span><i className={iconClass} /><span>{title}</span></span>
 		}
 	};
 

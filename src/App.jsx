@@ -1,7 +1,9 @@
 import React from 'react';
 import {Route, Switch, withRouter} from 'react-router-dom';
 
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.scss';
+
 import {Context} from './Context';
 
 import HomePage from './pages/home/home.page';

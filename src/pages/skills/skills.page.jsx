@@ -52,7 +52,7 @@ class SkillsPage extends Component {
 		const { skills, isCompletelyLoaded } = this.state;
 		return (
 			<div className="skills-page ">
-				{skills.map(skill => <SkillGroup key={skill.id} shouldAnimate={!isCompletelyLoaded} onNext={this.handleOnNext} items={skill.items} title={skill.title} visible={skill.visible} />)}
+				{skills.map(skill => <SkillGroup key={skill.id} shouldAnimate={!isCompletelyLoaded} onNext={this.handleOnNext} items={skill.items} title={skill.title} iconClass={skill.iconClass} visible={skill.visible} />)}
 			</div>
 		);
 	}
