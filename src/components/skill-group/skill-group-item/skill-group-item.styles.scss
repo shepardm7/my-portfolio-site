@@ -1,0 +1,35 @@
+.skill-group-item-comp {
+
+  opacity: 1;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .img-container-container {
+    overflow: hidden;
+    opacity: 1;
+    width: 70px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    .img-container {
+      position: relative;
+      width: 100%;
+      height: 70px;
+
+      .skill-img {
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+  }
+  .title {
+  }
+}

@@ -52,9 +52,9 @@ class AboutPage extends React.Component {
 					.pauseFor(200)
 					.typeString('<span>' +
 						'I am <em class="text-success">Sateek Roy</em>. I am a developer from India, currently living in Toronto,' +
-						' Canada. After completing my' +
-						'Bachelors in <em>Computer Application</em> I came to Canada as a student to complete my post-graduate course in <em>Mobile Application Design and Development</em> from Lambton College. Right now I&apos;m working as a software developer' +
-						'in a company called <em>Beacontree Inc.</em>' +
+						' Canada. After completing my Bachelors in <em>Computer Application</em> I came to Canada as a student' +
+						' to complete my post-graduate course in <em>Mobile Application Design and Development</em> from Lambton College. Right now I&apos;m working as a software developer' +
+						' in a company called <em>Beacontree Inc.</em>' +
 						'</span><p/>')
 					.pauseFor(100)
 					.typeString('<span>' +
