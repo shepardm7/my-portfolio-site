@@ -104,7 +104,6 @@ class HomePage extends Component {
 			.typeString('<span class="text-success">2.</span> My Skills<br>').pauseFor(200)
 			.typeString('<span class="text-success">3.</span> My works<br>').pauseFor(200)
 			.typeString('<span class="text-success">4.</span> Get in touch<br>').pauseFor(200)
-			.typeString('<span class="text-success">9.</span> Hide nav bar')
 			.callFunction(() => {
 				this.props.setNavVisibility(true);
 				this.context.dispatch(actionType.setShowSkip, false);
@@ -127,7 +126,6 @@ class HomePage extends Component {
 						<span className="text-success">2.</span> My Skills<br/>
 						<span className="text-success">3.</span> My Works<br/>
 						<span className="text-success">4.</span> Get in touch<br/>
-						<span className="text-success">9.</span> Hide nav bar<br/>
 					</div>
 				</div>
 			)
