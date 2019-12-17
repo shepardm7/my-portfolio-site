@@ -19,13 +19,16 @@ const SkillGroup = ({ title, visible, iconClass, items, onNext, shouldAnimate })
 	const typeWriterOnInit = (t) => {
 		t.changeDelay(10).changeCursor('_').changeDeleteSpeed(1)
 			.callFunction(() => {
-				if (refElm.current) window.scrollTo(0, refElm.current.offsetTop);
+				if (refElm.current) {
+					refElm.current.scrollIntoView(true);
+				}
+				// window.scrollTo(0, document.body.scrollHeight);
 			}).pauseFor(200)
 			.typeString(`<i class="${iconClass}"/> <span class="font-weight-normal">${title}</span>`)
 			.changeCursor(' ')
 			.callFunction(() => {
 				setIsItemsVisible(true);
-				if (refElm.current) window.scrollTo(0, refElm.current.offsetTop);
+				setTimeout(() => refElm.current.scrollIntoView(true), 10);
 				setTimeout(() => onNext(), 1000);
 			}).start();
 	};
@@ -59,7 +62,7 @@ const SkillGroup = ({ title, visible, iconClass, items, onNext, shouldAnimate })
 		<div className="skill-group-comp">
 			<div className="skill-title title h3"> {getTitle()}</div>
 			{getItems()}
-			<div ref={refElm}/>
+			<div ref={refElm} />
 		</div>
 	);
 };
