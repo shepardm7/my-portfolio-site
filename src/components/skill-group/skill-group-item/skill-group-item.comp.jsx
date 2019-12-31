@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './skill-group-item.styles.scss';
+import GlitchImg from '../../glitch-img/glitch-img.comp';
 
 const SkillGroupItem = ({ index, title, image }) => {
 	const delay = index/5;
@@ -13,11 +14,8 @@ const SkillGroupItem = ({ index, title, image }) => {
 	};
 	return (
 		<div className="skill-group-item-comp" style={getAnimationStyle()}>
-			<div className="img-container-container rounded">
-				<div className="img-container">
-					<div className="skill-img image-effect" style={{backgroundImage: `url(${image})`}}/>
-					<div className="skill-img image" style={{backgroundImage: `url(${image})`}}/>
-				</div>
+			<div className="glitch-container rounded">
+				<GlitchImg image={image} className="skill-glitch-image" isContain={true} />
 			</div>
 			<span className="title h5">{title}</span>
 		</div>

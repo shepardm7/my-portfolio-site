@@ -7,6 +7,7 @@ import Typewriter from 'typewriter-effect';
 
 import './about.styles.scss';
 import MyImg from '../../assets/me.jpg';
+import GlitchImg from '../../components/glitch-img/glitch-img.comp';
 
 class AboutPage extends React.Component {
 	static contextType = Context;
@@ -76,10 +77,7 @@ class AboutPage extends React.Component {
 		const { isCompletelyLoaded } = this.state;
 		return (
 			<div className="about-page">
-				<div className="image-container slide-right">
-					<div className="image image-effect" style={{backgroundImage: `url(${MyImg})`}} />
-					<div className="image" style={{backgroundImage: `url(${MyImg})`}} />
-				</div>
+				<GlitchImg image={MyImg} className="my-image-container slide-right" />
 				{ isCompletelyLoaded ? this.content : this.typeContent }
 			</div>
 		);
