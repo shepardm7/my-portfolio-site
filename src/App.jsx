@@ -13,6 +13,7 @@ import AnimatedBg from './components/animated-bg/animated-bg.comp';
 import NotFoundPage from './pages/not-found/not-found.page';
 import SkipBtn from './components/skip-btn/skip-btn.comp';
 import SkillsPage from './pages/skills/skills.page';
+import WorksPage from './pages/works/works.page';
 
 class App extends React.Component {
 	static contextType = Context;
@@ -79,6 +80,7 @@ class App extends React.Component {
 						<Route exact path="/" render={props => <HomePage {...props} setNavVisibility={setNavVisibilityClass}/>}/>
 						<Route path="/about" render={props => <AboutPage {...props} />}/>
 						<Route path="/skills" render={props => <SkillsPage {...props}/>} />
+						<Route path="/works" render={props => <WorksPage {...props} />} />
 						<Route component={NotFoundPage} />
 					</Switch>
 					<SkipBtn isVisible={this.context.showSkip} />
