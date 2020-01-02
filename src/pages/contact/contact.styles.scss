@@ -1,13 +1,50 @@
+@import "../../styles/screen-size";
 .contact-page {
   padding-top: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+
   .form-container {
     padding: 2rem 2.5rem;
     width: 50%;
+    min-width: 600px;
     background-color: transparent;
+    -webkit-animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
+    animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
+
+    @-webkit-keyframes fade-in-fwd {
+      0% {
+        -webkit-transform: translateZ(-80px);
+        transform: translateZ(-80px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1;
+      }
+    }
+    @keyframes fade-in-fwd {
+      0% {
+        -webkit-transform: translateZ(-80px);
+        transform: translateZ(-80px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1;
+      }
+    }
+
+    @include for-size(560px) {
+      width: 100%;
+      min-width: 100px;
+      padding: 2rem 1rem;
+    }
 
     .submit-container {
       display: flex;
@@ -16,9 +53,18 @@
       align-items: center;
       padding: 0 0.5rem;
 
+      @include for-size(510px) {
+        flex-direction: column;
+        justify-content: center;
+      }
       .g-recaptcha {
         opacity: 0.7;
         margin-right: auto;
+
+        @include for-size(510px) {
+          margin-right: 0;
+          margin-bottom: 1rem;
+        }
       }
 
       .submit-btn {

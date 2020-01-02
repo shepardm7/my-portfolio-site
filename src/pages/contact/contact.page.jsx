@@ -7,6 +7,7 @@ import {Context} from '../../Context';
 import {actionType} from '../../ActionTypes';
 // import {ReCAPTCHA} from 'react-google-recaptcha';
 import * as Recaptcha from 'react-gcaptcha';
+import ContactFooter from '../../components/contact-footer/contact-footer.comp';
 
 
 
@@ -85,6 +86,7 @@ class ContactPage extends Component {
 						</div>
 					</form>
 				</div>
+				<ContactFooter />
 			</div>
 		);
 	}

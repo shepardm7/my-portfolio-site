@@ -41,7 +41,7 @@ const Works = [
 				type: 'link',
 				iconClass: 'fas fa-play',
 				selectKey: 'd',
-				value: 'https://drive.google.com/open?id=1V2EPC1BIwkXtXdBaq1vI8JMgv3OH_EAN'
+				value: 'https://1drv.ms/v/s!AlxSeUXtZhYF2kt5OWEuOsO2i_34?e=Co5Ct9'
 			}
 		],
 		image: crwnImg
@@ -67,7 +67,7 @@ const Works = [
 				type: 'link',
 				iconClass: 'fas fa-play',
 				selectKey: 'd',
-				value: 'https://drive.google.com/open?id=17T2L_9eoQ1FhGdBqZ_d1SrDrf2F6J-iV'
+				value: 'https://1drv.ms/v/s!AlxSeUXtZhYF2kxi9fFrOgLhJ_8A?e=PodVbM'
 			}
 		],
 		description: <WorkDescriptionComp desc="An image search engine that uses Pixabay's API." list={[
@@ -103,7 +103,7 @@ const Works = [
 				type: 'link',
 				iconClass: 'fas fa-play',
 				selectKey: 'd',
-				value: 'https://drive.google.com/open?id=1NxY0aLXEWiuc8lFI3l9y-YbjpFpTPuFh'
+				value: 'https://1drv.ms/v/s!AlxSeUXtZhYF2kpKDl5SUXvNuGP4?e=NBpk94'
 			}
 		],
 		image: blastImg
