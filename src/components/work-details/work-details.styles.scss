@@ -4,7 +4,14 @@
   padding: 2rem;
   display: flex;
   justify-content: center;
+  margin: 0 !important;
 
+  .details-container {
+    @include for-size(phone-only) {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
   .links-container {
     display: flex;
     flex-direction: column;
@@ -28,10 +35,18 @@
   .title-container {
     width: 100%;
     text-align: center;
+
+    @include for-size(phone-only) {
+      font-size: 1.5em;
+    }
   }
 
   .desc-container {
     font-size: 1.5em;
+
+    @include for-size(phone-only) {
+      font-size: 1.1em;
+    }
   }
 
   .fade-in {

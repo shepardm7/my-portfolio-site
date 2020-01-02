@@ -41,7 +41,7 @@ const Works = [
 				type: 'link',
 				iconClass: 'fas fa-play',
 				selectKey: 'd',
-				value: 'https://drive.google.com/open?id=1lSQ_9uIJDnbBSEvmilIKxbZcu_WYHJDx'
+				value: 'https://drive.google.com/open?id=1V2EPC1BIwkXtXdBaq1vI8JMgv3OH_EAN'
 			}
 		],
 		image: crwnImg
@@ -67,7 +67,7 @@ const Works = [
 				type: 'link',
 				iconClass: 'fas fa-play',
 				selectKey: 'd',
-				value: 'https://drive.google.com/open?id=1SjGX3ihkrz5eABnkkcpR1S_I4AExplRP'
+				value: 'https://drive.google.com/open?id=17T2L_9eoQ1FhGdBqZ_d1SrDrf2F6J-iV'
 			}
 		],
 		description: <WorkDescriptionComp desc="An image search engine that uses Pixabay's API." list={[

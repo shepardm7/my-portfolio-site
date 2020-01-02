@@ -1,3 +1,4 @@
+@import "../../styles/screen-size";
 .home-page {
   height: 100vh;
   .up-arrow {
@@ -21,6 +22,12 @@
     height: 100%;
     width: 100%;
     text-align: center;
+
+    @include for-size(phone-only) {
+      span, div {
+        font-size: 1.2em !important;
+      }
+    }
   }
   .typed-cursor {
     font-size: 2em;

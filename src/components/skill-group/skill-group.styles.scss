@@ -28,6 +28,8 @@
     }
 
     @include for-size(695px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
       flex-wrap: wrap;
       justify-content: center;
     }
