@@ -2,5 +2,6 @@ export const actionType = {
 	onDocumentKeyUp: 'onDocumentKeyUp',
 	setShowSkip: 'setShowSkip',
 	setOnSkip: 'setOnSkip',
-	resetState: 'resetState'
+	resetState: 'resetState',
+	setFormHasFocus: 'setFormHasFocus'
 };

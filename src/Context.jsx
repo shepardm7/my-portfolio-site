@@ -6,7 +6,8 @@ const defaultState = {
 	onSkip: () => {
 	},
 	onDocumentKeyUp: (value) => {
-	}
+	},
+	formHasFocus: false
 };
 export const Context = createContext();
 
@@ -34,6 +35,9 @@ class ContextProvider extends Component {
 						value();
 					}
 				});
+				break;
+			case actionType.setFormHasFocus:
+				this.setState({ formHasFocus: value });
 				break;
 			default:
 				defaultState.onSkip = () => this.setState({showSkip: false});

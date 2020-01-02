@@ -6,7 +6,6 @@ import './header.styles.scss';
 
 const HeaderComp = ({getNavVisibilityClass, history}) => {
 	const [isNavbarOpen, setIsNavbarOpen] = React.useState(false);
-	console.log('HeaderComp', history);
 	const {pathname} = history.location;
 
 	const getClassName = path => {

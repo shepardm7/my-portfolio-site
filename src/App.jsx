@@ -14,6 +14,7 @@ import NotFoundPage from './pages/not-found/not-found.page';
 import SkipBtn from './components/skip-btn/skip-btn.comp';
 import SkillsPage from './pages/skills/skills.page';
 import WorksPage from './pages/works/works.page';
+import ContactPage from './pages/contact/contact.page';
 
 class App extends React.Component {
 	static contextType = Context;
@@ -30,7 +31,8 @@ class App extends React.Component {
 	componentDidMount() {
 		const { history } = this.props;
 		document.addEventListener('keyup', e => {
-			console.log(this.context);
+			if (this.context.formHasFocus) return;
+			this.context.onDocumentKeyUp(e.key);
 			switch(e.key) {
 				case '0':
 					history.push('/');
@@ -50,7 +52,6 @@ class App extends React.Component {
 				case ' ':
 					this.context.onSkip();
 			}
-			this.context.onDocumentKeyUp(e.key);
 		});
 		if (this.props.history.location.pathname !== '/') {
 			this.setState({ shouldShowNav: { slideIn: true, firstTime: false }});
@@ -81,6 +82,7 @@ class App extends React.Component {
 						<Route path="/about" render={props => <AboutPage {...props} />}/>
 						<Route path="/skills" render={props => <SkillsPage {...props}/>} />
 						<Route path="/works" render={props => <WorksPage {...props} />} />
+						<Route path="/contact" render={props => <ContactPage {...props} />} />
 						<Route component={NotFoundPage} />
 					</Switch>
 					<SkipBtn isVisible={this.context.showSkip} onClick={this.context.onSkip}/>

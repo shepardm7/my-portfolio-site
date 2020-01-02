@@ -28,3 +28,7 @@ $hamburger-layer-spacing: 2px;
   }
 }
 
+input, textarea {
+  background-color: $gray-700 !important;
+  color: $white !important;
+}

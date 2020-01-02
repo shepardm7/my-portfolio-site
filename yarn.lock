@@ -3527,6 +3527,11 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+emailjs-com@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/emailjs-com/-/emailjs-com-2.4.1.tgz#a785b2c13a232714a0376938ecc13a1bfaad6e62"
+  integrity sha512-JOnOm+dRv1Rc+yy+Y0QXKxYYdpbRl7C9xlOwKyTmpbCqAM6rcXRAc/D1igiPHqn1eTvCKzpeursTqfX6e7bdBw==
+
 emoji-regex@^7.0.1, emoji-regex@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
@@ -8532,6 +8537,11 @@ react-error-overlay@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.3.tgz#c378c4b0a21e88b2e159a3e62b2f531fd63bf60d"
   integrity sha512-bOUvMWFQVk5oz8Ded9Xb7WVdEi3QGLC8tH7HmYP0Fdp4Bn3qw0tRFmr5TW6mvahzvmrK4a6bqWGfCevBflP+Xw==
+
+react-gcaptcha@^4.2.3:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/react-gcaptcha/-/react-gcaptcha-4.2.3.tgz#b7c7349533eff6a1cfab3ae93b889aa7970707ef"
+  integrity sha512-+vLr4sd0K1Eqjv20XRS4bHl3ZzAsbREq/KwmVvb/DBEh7MMJ80C/4b2NMZaCwSjeMVaePI70M/ZWbXwYtPmONQ==
 
 react-is@^16.6.0, react-is@^16.7.0:
   version "16.12.0"
