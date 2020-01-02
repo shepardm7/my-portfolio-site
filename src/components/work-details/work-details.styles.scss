@@ -1,0 +1,58 @@
+@import "../../styles/screen-size";
+.work-details {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+
+  .links-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include for-size(991px) {
+      flex-direction: row;
+    }
+    .link {
+      text-transform: uppercase;
+      width: 7em;
+      margin-bottom: 1.5rem;
+
+      @include for-size(991px) {
+        margin-left: 0.7rem;
+        margin-right: 0.7rem;
+      }
+    }
+  }
+  .title-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .desc-container {
+    font-size: 1.5em;
+  }
+
+  .fade-in {
+    -webkit-animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+    @-webkit-keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}
