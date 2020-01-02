@@ -28,7 +28,6 @@ const Works = [
 			{
 				type: 'link',
 				iconClass: 'fas fa-link',
-				ref: null,
 				selectKey: 'a',
 				value: 'https://crwn-shep.herokuapp.com/'
 			},
@@ -36,14 +35,13 @@ const Works = [
 				type: 'link',
 				iconClass: 'fab fa-github',
 				selectKey: 's',
-				ref: null,
 				value: 'https://github.com/shepardm7/crwn-clothing-react-app'
 			},
 			{
-				type: 'video',
+				type: 'link',
 				iconClass: 'fas fa-play',
 				selectKey: 'd',
-				value: null
+				value: 'https://drive.google.com/open?id=1lSQ_9uIJDnbBSEvmilIKxbZcu_WYHJDx'
 			}
 		],
 		image: crwnImg
@@ -66,10 +64,10 @@ const Works = [
 				value: 'https://github.com/shepardm7/bootcamp-group-web-project/tree/dev-sateek'
 			},
 			{
-				type: 'video',
+				type: 'link',
 				iconClass: 'fas fa-play',
 				selectKey: 'd',
-				value: null
+				value: 'https://drive.google.com/open?id=1SjGX3ihkrz5eABnkkcpR1S_I4AExplRP'
 			}
 		],
 		description: <WorkDescriptionComp desc="An image search engine that uses Pixabay's API." list={[
@@ -102,10 +100,10 @@ const Works = [
 				value: 'https://play.google.com/store/apps/details?id=com.beacontree.blast'
 			},
 			{
-				type: 'video',
+				type: 'link',
 				iconClass: 'fas fa-play',
 				selectKey: 'd',
-				value: null
+				value: 'https://drive.google.com/open?id=1NxY0aLXEWiuc8lFI3l9y-YbjpFpTPuFh'
 			}
 		],
 		image: blastImg

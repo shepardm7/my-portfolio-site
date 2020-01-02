@@ -83,7 +83,7 @@ class App extends React.Component {
 						<Route path="/works" render={props => <WorksPage {...props} />} />
 						<Route component={NotFoundPage} />
 					</Switch>
-					<SkipBtn isVisible={this.context.showSkip} />
+					<SkipBtn isVisible={this.context.showSkip} onClick={this.context.onSkip}/>
 				</div>
 			</div>
 		);

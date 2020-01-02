@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
 @import "variables";
 @import "~bootstrap/scss/bootstrap";
+
+$hamburger-padding-x: 20px;
+$hamburger-padding-y: 8px;
+$hamburger-types: (collapse);
+$hamburger-layer-color: $green;
+$hamburger-layer-width: 1.1em;
+$hamburger-layer-height: 2px;
+$hamburger-layer-spacing: 2px;
+@import "../../node_modules/hamburgers/_sass/hamburgers/hamburgers";
+
 * {
   font-family: 'IBM Plex Mono', monospace;
 }
+

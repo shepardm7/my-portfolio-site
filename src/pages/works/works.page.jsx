@@ -66,6 +66,7 @@ class WorksPage extends Component {
 			if (work.selectKey === key) {
 				this.handleOnSelect(index);
 			} else {
+				if (selectedWorkIndex === null) return;
 				works[selectedWorkIndex].links.forEach(link => {
 					if (link.selectKey === key) {
 						if (link.type === 'link') {

@@ -34,7 +34,7 @@ const WorkDetails = ({work}) => {
 				{work.links ?
 					work.links.map(link =>
 						link.type === 'link' ?
-							<a href={link.value} ref={elm => link.ref = elm} target="_blank" rel="noopener noreferrer" className="link btn btn-outline-light">{link.selectKey} <i className={link.iconClass}/></a> :
+							<a href={link.value} ref={elm => link.ref = elm} target="_blank" rel="noopener noreferrer" className="link btn btn-outline-light"><span className="text-success">{link.selectKey}</span> <i className={link.iconClass}/></a> :
 							<button className="link btn btn-outline-light">{link.selectKey} <i className={link.iconClass}/></button>
 					)
 					: null}

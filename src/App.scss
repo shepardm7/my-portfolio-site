@@ -9,15 +9,6 @@
     position: relative;
     //position: absolute;
   }
-  .nav {
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    transform: translateY(-100%);
-    .active {
-      transform: scale(1.2);
-    }
-  }
 
   .slide-in {
     -webkit-animation: slide-in 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
