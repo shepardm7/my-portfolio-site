@@ -5,9 +5,15 @@
   z-index: 1000;
   transform: translateY(-100%);
   display: flex;
+  justify-content: flex-end;
 
+  .nav-horizontal {
+    width: 100%;
+    .home-link {
+      margin-right: auto;
+    }
+  }
   @include for-size(900px) {
-    justify-content: flex-end;
     .nav-horizontal {
       display: none;
     }

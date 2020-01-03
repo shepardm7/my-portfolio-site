@@ -19,7 +19,9 @@ const HeaderComp = ({getNavVisibilityClass, history}) => {
 	return (
 		<nav className={`header nav bg-secondary ${getNavVisibilityClass()}`}>
 			<div className="nav nav-horizontal">
-				<Link to={{pathname: '/', state: {firstLoad: false}}} className={getClassName('/')}>0. Home</Link>
+				<Link to={{pathname: '/', state: {firstLoad: false}}} className={`home-link ${getClassName('/')}`}>
+					0. Home
+				</Link>
 				<Link to="/about" className={getClassName('/about')}>1. About</Link>
 				<Link to="/skills" className={getClassName('/skills')}>2. Skills</Link>
 				<Link to="/works" className={getClassName('/works')}>3. My Works</Link>
