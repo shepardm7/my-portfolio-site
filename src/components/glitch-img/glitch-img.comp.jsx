@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './glitch-img.styles.scss';
 
-const GlitchImg = ({image, className, isContain}) => {
+const GlitchImg = ({image, className, isContain, isLogo}) => {
 
 	const commonStyles = {
 		backgroundImage: `url(${image})`,
@@ -12,20 +12,22 @@ const GlitchImg = ({image, className, isContain}) => {
 
 	return (
 		<div className={`glitch-img ${className}`}>
-			<div className="glitch-image glitch-img-effect" style={commonStyles}/>
+			<div className={`glitch-image glitch-img-effect ${isLogo ? 'logo' : ''}`} style={commonStyles}/>
 			<div className="glitch-image glitch-img-image" style={commonStyles}/>
 		</div>
 	);
 };
 
 GlitchImg.defaultProps = {
-	isContain: false
+	isContain: false,
+	isLogo: false
 };
 
 GlitchImg.propTypes = {
 	className: PropTypes.string,
 	image: PropTypes.object.isRequired,
-	isContain: PropTypes.bool
+	isContain: PropTypes.bool,
+	isLogo: PropTypes.bool
 };
 
 export default GlitchImg;

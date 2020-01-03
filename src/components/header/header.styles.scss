@@ -7,14 +7,33 @@
   display: flex;
   justify-content: flex-end;
 
-  .nav-horizontal {
-    width: 100%;
-    .home-link {
-      margin-right: auto;
+  .home-link {
+    position: relative;
+    .sr-logo {
+      width: 2em;
+      height: 2em;
+      overflow: hidden !important;
+      display: inline-block;
+      position: absolute;
+      transform: translateY(-50%);
+      top: 50%;
+      margin-left: 0.5rem;
+
+      .sr-logo-img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
     }
+    margin-right: auto;
   }
+
+  //.nav-horizontal {
+  //  width: 100%;
+  //}
   @include for-size(900px) {
-    .nav-horizontal {
+    .hr-link {
       display: none;
     }
     .nav-vertical.open {
