@@ -17,6 +17,12 @@ class ContactPage extends Component {
 
 	refSubmitBtn = null;
 
+	links = {
+		q: 'https://www.linkedin.com/in/sateek-roy-04245311a/',
+		w: 'https://github.com/shepardm7',
+		e: 'https://www.facebook.com/sateeksuper'
+	};
+
 	state = {
 		formHasFocus: false,
 		captchaReset: 0,
@@ -27,11 +33,24 @@ class ContactPage extends Component {
 
 	componentDidMount() {
 		const { dispatch } = this.context;
-
+		dispatch(actionType.onDocumentKeyUp, this.handleKeyPress)
 	}
+
+	componentWillUnmount() {
+		this.context.dispatch(actionType.resetState);
+	}
+
+	emailIsValid = () => {
+		return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.reply_to);
+	};
 
 	sendEmail = e => {
 		e.preventDefault();
+
+		if (!this.emailIsValid()) {
+			alert('Please enter a valid email address');
+			return;
+		}
 
 		emailjs.sendForm('default_service', 'template_p6KDm9eI_clone', e.target, 'user_YOPNLs0ZjQukbeOH011JB')
 			.then(result => {
@@ -52,6 +71,10 @@ class ContactPage extends Component {
 			});
 	};
 
+	handleKeyPress = key => {
+		if (this.links[key]) window.open(this.links[key], '_blank');
+	};
+
 	handleOnFormKeyDown = e => {
 		if (e.ctrlKey && e.keyCode === 13) {
 			console.log('OnFormKeyDown', e.target);
@@ -68,6 +91,7 @@ class ContactPage extends Component {
 		this.setState({ [key]: value });
 	};
 
+
 	render() {
 		const { captchaReset, from_name, reply_to, message_html } = this.state;
 		return (
@@ -82,11 +106,11 @@ class ContactPage extends Component {
 							{/*<div className="g-recaptcha" data-sitekey="6LcmqssUAAAAAJqZegX2leEUaBEd1yBAKummGZcE" data-theme="dark"/>*/}
 							{/*<ReCAPTCHA sitekey="6LcmqssUAAAAAJqZegX2leEUaBEd1yBAKummGZcE" theme="dark" />*/}
 							<Recaptcha sitekey="6LcmqssUAAAAAJqZegX2leEUaBEd1yBAKummGZcE" theme="dark" clsName="g-recaptcha" reset={captchaReset} />
-							<button className="submit-btn btn btn-outline-success" type="submit" ref={elm => this.refSubmitBtn = elm}>[Ctrl + &#x23CE;] Submit</button>
+							<button className="submit-btn btn btn-outline-success" type="submit" ref={elm => this.refSubmitBtn = elm}>Submit</button>
 						</div>
 					</form>
 				</div>
-				<ContactFooter />
+				<ContactFooter links={this.links} />
 			</div>
 		);
 	}

@@ -28,7 +28,9 @@ const SkillGroup = ({ title, visible, iconClass, items, onNext, shouldAnimate })
 			.changeCursor(' ')
 			.callFunction(() => {
 				setIsItemsVisible(true);
-				setTimeout(() => refElm.current.scrollIntoView(true), 10);
+				setTimeout(() => {
+					if (refElm.current) refElm.current.scrollIntoView(true)
+				}, 10);
 				setTimeout(() => onNext(), 1000);
 			}).start();
 	};

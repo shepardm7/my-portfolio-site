@@ -69,6 +69,10 @@
 
       .submit-btn {
         margin-left: 1rem;
+
+        @include for-size(510px) {
+          margin-left: 0;
+        }
       }
     }
   }

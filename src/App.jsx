@@ -31,6 +31,7 @@ class App extends React.Component {
 	componentDidMount() {
 		const { history } = this.props;
 		document.addEventListener('keyup', e => {
+			if (e.ctrlKey || e.altKey) return;
 			if (this.context.formHasFocus) return;
 			this.context.onDocumentKeyUp(e.key);
 			switch(e.key) {
