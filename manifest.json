@@ -1,6 +1,7 @@
 {
   "short_name": "SR Site",
-  "name": "Sateek Roy",
+  "name": "Sateek's site",
+  "author": "Sateek Roy",
   "icons": [
     {
       "src": "\/android-icon-36x36.png",
@@ -42,5 +43,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#444444"
 }
